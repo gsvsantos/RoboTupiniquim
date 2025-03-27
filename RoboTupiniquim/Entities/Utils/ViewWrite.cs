@@ -1,5 +1,12 @@
 ﻿namespace RoboTupiniquim.Entities.Utils;
 
-internal class ViewWrite
+public class ViewWrite
 {
+    public static void Header()
+    {
+        Console.Clear();
+        ViewColors.PaintWriteLine("/=-=-=-=-=-=-=-=-=-=-=-=\\");
+        ViewColors.PaintWriteLine("     Robô Tupiniquim", ConsoleColor.Cyan);
+        ViewColors.PaintWriteLine("\\=-=-=-=-=-=-=-=-=-=-=-=/");
+    }
 }
