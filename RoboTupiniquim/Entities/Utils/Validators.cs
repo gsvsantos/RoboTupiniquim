@@ -6,7 +6,7 @@ public class Validators
     {
         do
         {
-+            ViewColors.PaintWrite(prompt);
+           ViewColors.PaintWrite(prompt);
             string input = Console.ReadLine()!;
             if (string.IsNullOrEmpty(input))
             {
