@@ -6,50 +6,51 @@ public class Validators
     {
         do
         {
-            Console.Write(prompt);
++            ViewColors.PaintWrite(prompt);
             string input = Console.ReadLine()!;
             if (string.IsNullOrEmpty(input))
             {
-                Console.WriteLine($"'{input}' não é um número...");
+                ViewColors.PaintWriteLine($"'{input}' não é um número...", ConsoleColor.Red);
                 continue;
             }
             input = input.Trim();
             if (input.Contains(' ') || input.Contains('.') || input.Contains(','))
             {
-                Console.WriteLine("O valor não pode conter espaço ' ', ponto (.), ou vírgula (,)!");
+                ViewColors.PaintWriteLine("O valor não pode conter espaço ' ', ponto (.), ou vírgula (,)!", ConsoleColor.Red);
                 continue;
             }
             if (!int.TryParse(input, out int value))
             {
-                Console.WriteLine("O valor digitado não é um número válido.");
+                ViewColors.PaintWriteLine("O valor digitado não é um número válido.", ConsoleColor.Red);
                 continue;
             }
             if (value <= minValue || value > maxValue)
             {
-                Console.WriteLine($"O valor deve estar entre 1 e {maxValue}.");
+                ViewColors.PaintWriteLine($"O valor deve estar entre 1 e {maxValue}.", ConsoleColor.Red);
                 continue;
             }
             return value;
         } while (true);
     }
-    public static string StringVerify(string lenghtError, int minLenght)
+    public static string StringVerify(string prompt, string lenghtError, int minLenght, int maxLenght = int.MaxValue)
     {
         do
         {
+            ViewColors.PaintWrite(prompt);
             string input = Console.ReadLine()!;
             if (string.IsNullOrEmpty(input))
             {
-                Console.WriteLine($"'{input}' não me parece correto...", ConsoleColor.Red);
+                ViewColors.PaintWriteLine($"'{input}' não me parece correto...", ConsoleColor.Red);
                 continue;
             }
             if (!input.All(char.IsLetter))
             {
-                Console.WriteLine($"Tem algo de errado com essa palavra... ({input})", ConsoleColor.Red);
+                ViewColors.PaintWriteLine($"Tem algo de errado com essa palavra... ({input})", ConsoleColor.Red);
                 continue;
             }
-            if (input.Length < minLenght)
+            if (input.Length < minLenght || input.Length > maxLenght)
             {
-                Console.WriteLine(lenghtError, ConsoleColor.Red);
+                ViewColors.PaintWriteLine(lenghtError, ConsoleColor.Red);
                 continue;
             }
             return input;
