@@ -4,9 +4,9 @@ namespace RoboTupiniquim.Entities;
 
 public class Entity
 {
-    internal static int PositionX {  get; set; }
-    internal static int PositionY { get; set; }
-    internal static char Direction { get; set; }
+    protected static int PositionX {  get; set; }
+    protected static int PositionY { get; set; }
+    protected static char Direction { get; set; }
 
     public static void TurnLeft()
     {
