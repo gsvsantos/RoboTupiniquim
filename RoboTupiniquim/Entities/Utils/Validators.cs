@@ -6,27 +6,27 @@ public class Validators
     {
         do
         {
-           ViewColors.PaintWrite(prompt);
+            ViewColors.PaintWrite(prompt);
             string input = Console.ReadLine()!;
             if (string.IsNullOrEmpty(input))
             {
-                ViewColors.PaintWriteLine($"'{input}' não é um número...", ConsoleColor.Red);
+                ViewWriteErrors.InputIsNullOrEmpty(input);
                 continue;
             }
             input = input.Trim();
             if (input.Contains(' ') || input.Contains('.') || input.Contains(','))
             {
-                ViewColors.PaintWriteLine("O valor não pode conter espaço ' ', ponto (.), ou vírgula (,)!", ConsoleColor.Red);
+                ViewWriteErrors.IntCannotHaveSpaceDotComma();
                 continue;
             }
             if (!int.TryParse(input, out int value))
             {
-                ViewColors.PaintWriteLine("O valor digitado não é um número válido.", ConsoleColor.Red);
+                ViewWriteErrors.InvalidInt();
                 continue;
             }
             if (value <= minValue || value > maxValue)
             {
-                ViewColors.PaintWriteLine($"O valor deve estar entre 1 e {maxValue}.", ConsoleColor.Red);
+                ViewWriteErrors.IntNeedBetweenMinAndMax(maxValue);
                 continue;
             }
             return value;
@@ -40,17 +40,17 @@ public class Validators
             string input = Console.ReadLine()!;
             if (string.IsNullOrEmpty(input))
             {
-                ViewColors.PaintWriteLine($"'{input}' não me parece correto...", ConsoleColor.Red);
+                ViewWriteErrors.InputIsNullOrEmpty(input);
                 continue;
             }
             if (!input.All(char.IsLetter))
             {
-                ViewColors.PaintWriteLine($"Tem algo de errado com essa palavra... ({input})", ConsoleColor.Red);
+                ViewWriteErrors.InvalidString(input);
                 continue;
             }
             if (input.Length < minLenght || input.Length > maxLenght)
             {
-                ViewColors.PaintWriteLine(lenghtError, ConsoleColor.Red);
+                ViewWriteErrors.StringNeedBetweenMinAndMax(lenghtError);
                 continue;
             }
             return input;
