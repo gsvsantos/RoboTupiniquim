@@ -75,7 +75,7 @@ public class Validators
             return input;
         } while (true);
     }
-    public static char[] RobotCommandsVerify() //verificar se é D E M
+    public static char[] RobotCommandsVerify()
     {
         do
         {
@@ -83,7 +83,7 @@ public class Validators
             bool wrongCommand = false;
             for (int i = 0; i < commands.Length; i++)
             {
-                if (commands[i] != 'D' || commands[i] != 'E' || commands[i] != 'M')
+                if (commands[i] != 'D' && commands[i] != 'E' && commands[i] != 'M')
                 {
                     ViewWriteErrors.CommandsNeedsToBeLetters();
                     wrongCommand = true;
@@ -94,31 +94,77 @@ public class Validators
                 continue;
             else
                 return commands;
-        }while (true);
+        } while (true);
     }
-    public static string[] RobotDataVerify() //verificar se inicia com xInt, yInt, directionChar
+    public static string[] RobotDataVerify()
     {
         do
         {
             string[] data = ViewUtils.GetRobotInitialData();
-            bool IsNotNumber = false;
+            bool isNotNumber = false;
+
+            if(data.Length != 3)
+            {
+                ViewWriteErrors.DataInputError();
+                continue;
+            }
+            if(data.Contains(" "))
+            {
+                ViewWriteErrors.PositionNeedsToBeAIntNumber();
+                continue;
+            }
+
             for (int i = 0; i <= 1; i++)
             {
                 if (!int.TryParse(data[i], out _))
                 {
-                    ViewWriteErrors.PositionNeedsToBeAIntNumber();
-                    IsNotNumber = true;
+                    isNotNumber = true;
                     break;
                 }
             }
-            if (IsNotNumber == true)
+            if (isNotNumber == true)
+            {
+                ViewWriteErrors.PositionNeedsToBeAIntNumber();
                 continue;
+            }
             if (!char.TryParse(data[2], out _))
             {
                 ViewWriteErrors.DirectionNeedsToBeALetter();
                 continue;
             }
+            if (data[2] != "N" && data[2] != "S" && data[2] != "L" && data[2] != "O")
+            {
+                ViewWriteErrors.DirectionNeedsToBeALetter();
+                continue;
+            }
             return data;
+        } while (true);
+    }
+    public static string[] AreaLimitVerify()
+    {
+        do
+        {
+            string[] values = ViewUtils.GetAreaMaxLimit();
+            bool invalidValue = false;
+
+            if (values.Length != 2)
+                invalidValue = true;
+
+            foreach (string v in values)
+            {
+                if (!int.TryParse(v, out _))
+                {
+                    invalidValue = true;
+                    break;
+                }
+            }
+            if (invalidValue == true)
+            {
+                ViewWriteErrors.AreaInputError();
+                continue;
+            }
+
+            return values;
         } while (true);
     }
 }
