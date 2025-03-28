@@ -34,4 +34,8 @@ public class ViewWriteErrors
     {
         ViewColors.PaintWriteLine("Precisa ser uma letra...", ConsoleColor.Red);
     }
+    public static void CommandsNeedsToBeLetters()
+    {
+        ViewColors.PaintWriteLine("Os comandos precisam ser letras... (E, D, M)", ConsoleColor.Red);
+    }
 }
