@@ -1,6 +1,6 @@
 ﻿namespace RoboTupiniquim.Entities;
 
-internal class Robot01 : Entity
+public class Robot01 : Entity
 {
     public override void TurnLeft()
     {
