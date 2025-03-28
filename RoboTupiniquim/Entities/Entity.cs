@@ -4,12 +4,14 @@ namespace RoboTupiniquim.Entities;
 
 public class Entity
 {
-    protected static int PositionX { get; set; }
-    protected static int PositionY { get; set; }
-    protected static char Direction { get; set; }
+    public int PositionX { get; set; }
+    public int PositionY { get; set; }
+    public char Direction { get; set; }
 
     public virtual void TurnLeft()
     {
+        char oldDirection = Direction;
+
         if (Direction == 'N')
             Direction = 'O';
         else if (Direction == 'O')
@@ -19,9 +21,12 @@ public class Entity
         else if (Direction == 'L')
             Direction = 'N';
 
+        ViewWrite.LookToDirection(oldDirection, Direction);
     }
     public virtual void TurnRight()
     {
+        char oldDirection = Direction;
+
         if (Direction == 'N')
             Direction = 'L';
         else if (Direction == 'L')
@@ -30,6 +35,8 @@ public class Entity
             Direction = 'O';
         else if (Direction == 'O')
             Direction = 'N';
+
+        ViewWrite.LookToDirection(oldDirection, Direction);
     }
     public virtual void MoveOn()
     {
@@ -44,11 +51,11 @@ public class Entity
 
         if (Area.RobotIsInside(PositionX, PositionX))
         {
-            Console.WriteLine($"Movido para ({PositionX}, {PositionY})");
+            ViewWrite.MovingOnPositions(PositionX, PositionY, Direction);
         }
         else
         {
-            Console.WriteLine("Movimento inválido! Fora dos limites da área de pesquisa.");
+            ViewWriteErrors.InvalidLastPosition();
         }
     }
     public virtual void GetData()
@@ -60,7 +67,9 @@ public class Entity
     }
     public virtual void GetCommands()
     {
+
         char[] commands = Validators.RobotCommandsVerify();
+        ViewWrite.InitialPosition(PositionX, PositionY, Direction);
         foreach (char c in commands)
         {
             if (c == 'D')
