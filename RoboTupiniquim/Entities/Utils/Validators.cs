@@ -36,7 +36,7 @@ public class Validators
     {
         do
         {
-            ViewColors.PaintWrite(prompt);
+            ViewColors.PaintWrite(prompt, ConsoleColor.Yellow);
             string input = Console.ReadLine()!;
             if (string.IsNullOrEmpty(input))
             {
@@ -55,7 +55,7 @@ public class Validators
     {
         do
         {
-            ViewColors.PaintWrite(prompt);
+            ViewColors.PaintWrite(prompt, ConsoleColor.Yellow);
             string input = Console.ReadLine()!;
             if (string.IsNullOrEmpty(input))
             {
