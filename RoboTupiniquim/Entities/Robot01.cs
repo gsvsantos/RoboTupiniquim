@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace RoboTupiniquim.Entities;
 
-namespace RoboTupiniquim.Entities
+internal class Robot01
 {
-    internal class Robot01
-    {
-    }
+    public static int PositionX { get; set; }
+    public static int PositionY { get; set; }
+    public static char Direction { get; set; }
+
+
 }
