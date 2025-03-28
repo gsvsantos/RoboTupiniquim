@@ -5,8 +5,12 @@ namespace RoboTupiniquim
 {
     internal class Program
     {
-        static Robot firstRobot = new Robot();
-        static Robot secondRobot = new Robot();
+        static int firstRobotId = 1;
+        static int secondRobotId = 2;
+        static int robot1PosX, robot1PosY;
+        static int robot2PosX, robot2PosY;
+        static char robot1Direction, robot2Direction;
+        static int areaMaxX, areaMaxY;
 
         static void Main(string[] args)
         {
