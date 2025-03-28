@@ -42,7 +42,7 @@ public class ViewWriteErrors
     {
         ViewColors.PaintWriteLine("Os comandos precisam ser letras... (Exemplos: E, D, M)", ConsoleColor.Red);
     }
-    public static void InvalidLastPosition()
+    public static void RobotIsOutOfAreaRange()
     {
         ViewColors.PaintWriteLine("\nAviso! O robô está fora dos limites da área de pesquisa.\n", ConsoleColor.Red);
     }
