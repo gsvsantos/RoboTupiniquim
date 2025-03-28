@@ -26,4 +26,12 @@ public class ViewWriteErrors
     {
         ViewColors.PaintWriteLine(lenghtError, ConsoleColor.Red);
     }
+    public static void PositionNeedsToBeAIntNumber()
+    {
+        ViewColors.PaintWriteLine($"As posições precisam ser um número inteiro válido!", ConsoleColor.Red);
+    }
+    public static void DirectionNeedsToBeALetter()
+    {
+        ViewColors.PaintWriteLine("Precisa ser uma letra...", ConsoleColor.Red);
+    }
 }
