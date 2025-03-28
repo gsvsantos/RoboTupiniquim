@@ -43,11 +43,6 @@ public class Validators
                 ViewWriteErrors.InputIsNullOrEmpty(input);
                 continue;
             }
-            if (!input.All(char.IsLetter))
-            {
-                ViewWriteErrors.InvalidString(input);
-                continue;
-            }
             if (input.Length < minLenght || input.Length > maxLenght)
             {
                 ViewWriteErrors.StringNeedBetweenMinAndMax(lenghtError);
@@ -55,5 +50,30 @@ public class Validators
             }
             return input;
         } while (true);
+    }
+    public static string[] DataVerify()
+    {
+        do
+        {
+            string[] data = ViewUtils.GetRobotInitialData();
+            bool IsNotNumber = false;
+            for (int i = 0; i <= 1; i++)
+            {
+                if (!int.TryParse(data[i], out _))
+                {
+                    ViewWriteErrors.PositionNeedsToBeAIntNumber();
+                    IsNotNumber = true;
+                    break;
+                }
+            }
+            if (IsNotNumber == true)
+                continue;
+            if (!char.TryParse(data[2], out _))
+            {
+                ViewWriteErrors.DirectionNeedsToBeALetter();
+                continue;
+            }
+            return data;
+        }while (true);
     }
 }
