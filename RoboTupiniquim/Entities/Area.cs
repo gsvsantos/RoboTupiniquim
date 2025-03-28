@@ -14,7 +14,7 @@ public class Area
         MaxX = Convert.ToInt32(values[0]);
         MaxY = Convert.ToInt32(values[1]);
     }
-    public bool RobotIsInside(int x, int y)
+    public static bool RobotIsInside(int x, int y)
     {
         return x >= 0 && x <= MaxX && y >= 0 && y <= MaxY;
     }
