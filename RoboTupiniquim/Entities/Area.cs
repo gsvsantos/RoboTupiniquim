@@ -7,10 +7,9 @@ public class Area
     public static int MaxX { get; set; }
     public static int MaxY { get; set; }
 
-    public Area() { }
-    public void AreaCreate()
+    public static void AreaCreate()
     {
-        string[] values = ViewUtils.GetAreaMaxLimit();
+        string[] values = Validators.AreaLimitVerify();
         MaxX = Convert.ToInt32(values[0]);
         MaxY = Convert.ToInt32(values[1]);
     }
