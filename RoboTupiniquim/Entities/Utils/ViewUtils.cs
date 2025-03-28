@@ -14,7 +14,7 @@ internal class ViewUtils
     }
     public static char[] GetCommandList()
     {
-        string input = Validators.StringVerify("Informe os comandos de movimentos: ", "Este comando está um pouco pequeno..", 1);
+        string input = Validators.LetterVerify("Informe os comandos de movimentos: ", "Este comando está um pouco pequeno..", 1);
         return input.ToUpper().ToCharArray();
     }
     public static void PressEnter(string type)
