@@ -2,6 +2,7 @@
 
 public class Robot01 : Entity
 {
+    public int Id = 1;
     public Robot01() { }
     public override void TurnLeft()
     {
