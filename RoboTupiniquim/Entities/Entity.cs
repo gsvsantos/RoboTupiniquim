@@ -40,11 +40,20 @@ public class Entity
         if (Direction == 'L')
             PositionX += 1;
         if (Direction == 'O')
-            PositionX -= 1;
+            PositionX -= 1; 
+        
+        if (Area.RobotIsInside(PositionX, PositionX))
+        {
+            Console.WriteLine($"Movido para ({PositionX}, {PositionY})");
+        }
+        else
+        {
+            Console.WriteLine("Movimento inválido! Fora dos limites da área.");
+        }
     }
     public virtual void GetData()
     {
-        string[] data = Validators.DataVerify();
+        string[] data = Validators.RobotDataVerify();
         PositionX = Convert.ToInt32(data[0]);
         PositionY = Convert.ToInt32(data[1]);
         Direction = Convert.ToChar(data[2]);
