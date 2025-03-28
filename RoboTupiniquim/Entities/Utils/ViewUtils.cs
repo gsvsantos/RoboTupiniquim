@@ -2,10 +2,10 @@
 
 internal class ViewUtils
 {
-    public static int GetAreaMaxLimit()
+    public static string[] GetAreaMaxLimit()
     {
-        int input = Validators.IntVerify("\nPor favor, digite o tamanho da área de pesquisa (Ex: 5 5): ", 1);
-        return input;
+        string input = Validators.StringVerify("\nPor favor, digite o tamanho da área de pesquisa (Ex: 5 5): ", "Algo deu errado com o tamanho inserido da area de pesquisa!", 1, 3);
+        return input.Split(' ');
     }
     public static string[] GetRobotInitialData()
     {
