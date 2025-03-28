@@ -8,7 +8,7 @@ public class ViewWriteErrors
     }
     public static void IntCannotHaveSpaceDotComma()
     {
-        ViewColors.PaintWriteLine("O valor não pode conter espaço ' ', ponto (.), ou vírgula (,)!", ConsoleColor.Red);
+        ViewColors.PaintWriteLine("O valor não pode conter ponto (.), ou vírgula (,)!", ConsoleColor.Red);
     }
     public static void InvalidInt()
     {
