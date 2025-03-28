@@ -8,7 +8,7 @@ public class Entity
     public int PositionY { get; set; }
     public char Direction { get; set; }
 
-    public virtual void TurnLeft()
+    public virtual void TurnLeft(bool watchRobotSteps)
     {
         char oldDirection = Direction;
 
@@ -21,9 +21,10 @@ public class Entity
         else if (Direction == 'L')
             Direction = 'N';
 
-        ViewWrite.LookToDirection(oldDirection, Direction);
+        if (watchRobotSteps == true)
+            ViewWrite.LookToDirection(oldDirection, Direction);
     }
-    public virtual void TurnRight()
+    public virtual void TurnRight(bool watchRobotSteps)
     {
         char oldDirection = Direction;
 
@@ -36,9 +37,10 @@ public class Entity
         else if (Direction == 'O')
             Direction = 'N';
 
+        if (watchRobotSteps == true)
         ViewWrite.LookToDirection(oldDirection, Direction);
     }
-    public virtual void MoveOn()
+    public virtual void MoveOn(bool watchRobotSteps)
     {
         if (Direction == 'N')
             PositionY += 1;
@@ -49,18 +51,18 @@ public class Entity
         else if (Direction == 'O')
             PositionX -= 1;
 
-        if (Area.RobotIsInside(PositionX, PositionX))
-        {
-            ViewWrite.MovingOnPositions(PositionX, PositionY, Direction);
-        }
-        else
+        if (!Area.RobotIsInside(PositionX, PositionX))
         {
             ViewWriteErrors.InvalidLastPosition();
         }
+        else if (watchRobotSteps == true)
+        {
+            ViewWrite.MovingOnPositions(PositionX, PositionY, Direction);
+        }
     }
-    public virtual void GetData()
+    public virtual void GetData(int id)
     {
-        string[] data = Validators.RobotDataVerify();
+        string[] data = Validators.RobotDataVerify(id);
         PositionX = Convert.ToInt32(data[0]);
         PositionY = Convert.ToInt32(data[1]);
         Direction = Convert.ToChar(data[2]);
@@ -70,14 +72,17 @@ public class Entity
 
         char[] commands = Validators.RobotCommandsVerify();
         ViewWrite.InitialPosition(PositionX, PositionY, Direction);
+
+        bool watchRobotSteps = ViewUtils.YesOrNo();
+
         foreach (char c in commands)
         {
             if (c == 'D')
-                TurnRight();
+                TurnRight(watchRobotSteps);
             else if (c == 'E')
-                TurnLeft();
+                TurnLeft(watchRobotSteps);
             else if (c == 'M')
-                MoveOn();
+                MoveOn(watchRobotSteps);
         }
     }
 }

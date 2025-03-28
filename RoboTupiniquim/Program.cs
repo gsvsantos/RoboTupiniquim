@@ -14,10 +14,10 @@ namespace RoboTupiniquim
             Area.AreaCreate();
             ViewWrite.PrintArea();
 
-            firstRobot.GetData();
+            firstRobot.GetData(firstRobot.Id);
             firstRobot.GetCommands();
 
-            secondRobot.GetData();
+            secondRobot.GetData(secondRobot.Id);
             secondRobot.GetCommands();
 
             ViewWrite.LastPosition(firstRobot.Id, firstRobot.PositionX, firstRobot.PositionY, firstRobot.Direction);
