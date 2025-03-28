@@ -87,7 +87,7 @@ internal class Robot : Entity
             if (!Area.RobotIsInside(PositionX, PositionY))
             {
                 ViewWriteErrors.InvalidLastPosition();
-                ViewWrite.RobotActualPosition(Id, PositionX, PositionY, Direction);
+                ViewWrite.RobotOutAreaActualPosition(Id, PositionX, PositionY, Direction);
                 continue;
             }
             else
