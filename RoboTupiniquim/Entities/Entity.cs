@@ -8,7 +8,7 @@ public class Entity
     protected static int PositionY { get; set; }
     protected static char Direction { get; set; }
 
-    public static void TurnLeft()
+    public virtual void TurnLeft()
     {
         if (Direction == 'N')
             Direction = 'O';
@@ -20,7 +20,7 @@ public class Entity
             Direction = 'N';
 
     }
-    public static void TurnRight()
+    public virtual void TurnRight()
     {
         if (Direction == 'N')
             Direction = 'L';
@@ -31,7 +31,7 @@ public class Entity
         else if (Direction == 'O')
             Direction = 'N';
     }
-    public static void MoveOn()
+    public virtual void MoveOn()
     {
         if (Direction == 'N')
             PositionY += 1;
@@ -42,7 +42,7 @@ public class Entity
         if (Direction == 'O')
             PositionX -= 1;
     }
-    public static void GetData()
+    public virtual void GetData()
     {
         string[] data = Validators.DataVerify();
         PositionX = Convert.ToInt32(data[0]);
