@@ -44,7 +44,7 @@ public class ViewWriteErrors
     }
     public static void InvalidLastPosition()
     {
-        ViewColors.PaintWriteLine("Movimento inválido! Fora dos limites da área de pesquisa.", ConsoleColor.Red);
+        ViewColors.PaintWriteLine("\nAviso! O robô está fora dos limites da área de pesquisa.\n", ConsoleColor.Red);
     }
     public static void AreaInputError()
     {
