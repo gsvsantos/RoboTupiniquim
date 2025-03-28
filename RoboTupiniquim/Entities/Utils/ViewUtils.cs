@@ -9,8 +9,8 @@ internal class ViewUtils
     }
     public static string[] GetRobotInitialData()
     {
-        string input = Validators.StringVerify("Informe a posição inicial do Robô: ", "Houve um erro com esta posição informada!", 1, 3);
-        return input.ToUpper().Split(" ");
+        string input = Validators.StringVerify("Informe a posição inicial do Robô: ", "Houve um erro com esta posição informada!", 1, 5);
+        return input.ToUpper().Split(' ');
     }
     public static char[] GetCommandList()
     {
