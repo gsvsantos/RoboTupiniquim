@@ -9,4 +9,8 @@ public class ViewWrite
         ViewColors.PaintWriteLine("     Robô Tupiniquim", ConsoleColor.Cyan);
         ViewColors.PaintWriteLine("\\=-=-=-=-=-=-=-=-=-=-=-=/");
     }
+    public static void PrintArea()
+    {
+        Console.WriteLine($"Área definida com limites de: ({Area.MaxX}, {Area.MaxY})");
+    }
 }
