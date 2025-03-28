@@ -5,25 +5,38 @@ namespace RoboTupiniquim
 {
     internal class Program
     {
-        static Robot01 firstRobot = new Robot01();
-        static Robot02 secondRobot = new Robot02();
+        static Robot firstRobot = new Robot();
+        static Robot secondRobot = new Robot();
 
         static void Main(string[] args)
         {
-            ViewWrite.Header();
-            Area.AreaCreate();
-            ViewWrite.PrintArea();
+            do
+            {
+                ViewWrite.Header();
+                Area.AreaCreate();
 
-            firstRobot.GetData(firstRobot.Id);
-            firstRobot.GetCommands();
+                ViewUtils.PressEnter("PRIMEIRO-ROBO");
+                ViewWrite.Header();
+                ViewWrite.PrintArea();
 
-            secondRobot.GetData(secondRobot.Id);
-            secondRobot.GetCommands();
+                firstRobot.GetData();
+                firstRobot.GetCommands();
 
-            ViewWrite.LastPosition(firstRobot.Id, firstRobot.PositionX, firstRobot.PositionY, firstRobot.Direction);
-            ViewWrite.LastPosition(secondRobot.Id, secondRobot.PositionX, secondRobot.PositionY, secondRobot.Direction);
+                ViewUtils.PressEnter("SEGUNDO-ROBO");
+                ViewWrite.Header();
+                ViewWrite.PrintArea();
 
-            ViewUtils.PressEnter("USAR-NOVAMENTE");
+                secondRobot.GetData();
+                secondRobot.GetCommands();
+
+                ViewUtils.PressEnter("POSICAO-FINAL");
+                ViewWrite.Header();
+
+                ViewWrite.LastPosition(firstRobot.Id, firstRobot.PositionX, firstRobot.PositionY, firstRobot.Direction);
+                ViewWrite.LastPosition(secondRobot.Id, secondRobot.PositionX, secondRobot.PositionY, secondRobot.Direction);
+
+                ViewUtils.PressEnter("LANCAR-NOVAMENTE");
+            } while (true);
         }
     }
 }
