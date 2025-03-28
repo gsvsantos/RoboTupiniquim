@@ -96,11 +96,11 @@ public class Validators
                 return commands;
         } while (true);
     }
-    public static string[] RobotDataVerify()
+    public static string[] RobotDataVerify(int id)
     {
         do
         {
-            string[] data = ViewUtils.GetRobotInitialData();
+            string[] data = ViewUtils.GetRobotInitialData(id);
             bool isNotNumber = false;
 
             if(data.Length != 3)
