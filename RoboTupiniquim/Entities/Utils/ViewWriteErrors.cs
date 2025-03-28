@@ -28,14 +28,26 @@ public class ViewWriteErrors
     }
     public static void PositionNeedsToBeAIntNumber()
     {
-        ViewColors.PaintWriteLine($"As posições precisam ser um número inteiro válido!", ConsoleColor.Red);
+        ViewColors.PaintWriteLine($"As posições precisam ser um número inteiro válido! (Exemplo: 1 2)", ConsoleColor.Red);
     }
     public static void DirectionNeedsToBeALetter()
     {
-        ViewColors.PaintWriteLine("Precisa ser uma letra...", ConsoleColor.Red);
+        ViewColors.PaintWriteLine("A direção ser uma letra... (Exemplos: N, S, L, O)", ConsoleColor.Red);
+    }
+    public static void DataInputError()
+    {
+        ViewColors.PaintWriteLine("Por favor, siga o modelo exemplo de posição inicial: (1 2 N)", ConsoleColor.Red);
     }
     public static void CommandsNeedsToBeLetters()
     {
-        ViewColors.PaintWriteLine("Os comandos precisam ser letras... (E, D, M)", ConsoleColor.Red);
+        ViewColors.PaintWriteLine("Os comandos precisam ser letras... (Exemplos: E, D, M)", ConsoleColor.Red);
+    }
+    public static void InvalidLastPosition()
+    {
+        ViewColors.PaintWriteLine("Movimento inválido! Fora dos limites da área de pesquisa.", ConsoleColor.Red);
+    }
+    public static void AreaInputError()
+    {
+        ViewColors.PaintWriteLine("Por favor, siga o modelo exemplo de limite de área: (5 5)", ConsoleColor.Red);
     }
 }
