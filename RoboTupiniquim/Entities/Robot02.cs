@@ -2,6 +2,7 @@
 
 public class Robot02 : Entity
 {
+    public Robot02() { }
     public override void TurnLeft()
     {
         base.TurnLeft();
