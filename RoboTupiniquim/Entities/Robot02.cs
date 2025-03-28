@@ -11,10 +11,21 @@ internal class Robot02
 
     public static void GetData()
     {
-        string[] data = Validators.RobotDataVerify(Id);
-        PositionX = Convert.ToInt32(data[0]);
-        PositionY = Convert.ToInt32(data[1]);
-        Direction = Convert.ToChar(data[2]);
+        do
+        {
+            string[] data = Validators.RobotDataVerify(Id);
+            if (Convert.ToInt32(data[0]) > Area.MaxX || Convert.ToInt32(data[1]) > Area.MaxY)
+            {
+                ViewWriteErrors.RobotIsOutOfAreaRange();
+                continue;
+            }
+
+            PositionX = Convert.ToInt32(data[0]);
+            PositionY = Convert.ToInt32(data[1]);
+            Direction = Convert.ToChar(data[2]);
+
+            break;
+        } while (true);
     }
     public static void GetCommands()
     {
@@ -24,7 +35,7 @@ internal class Robot02
             RunCommands(commands);
             if (!Area.RobotIsInside(PositionX, PositionY))
             {
-                ViewWriteErrors.InvalidLastPosition();
+                ViewWriteErrors.RobotIsOutOfAreaRange();
                 ViewWrite.RobotOutAreaActualPosition(Id, PositionX, PositionY, Direction);
                 continue;
             }
