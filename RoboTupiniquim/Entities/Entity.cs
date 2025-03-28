@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+﻿using RoboTupiniquim.Entities.Utils;
 
 namespace RoboTupiniquim.Entities;
 
@@ -41,5 +41,12 @@ public class Entity
             PositionX += 1;
         if (Direction == 'O')
             PositionX -= 1;
+    }
+    public static void GetData()
+    {
+        string[] data = Validators.DataVerify();
+        PositionX = Convert.ToInt32(data[0]);
+        PositionY = Convert.ToInt32(data[1]);
+        Direction = Convert.ToChar(data[2]);
     }
 }
