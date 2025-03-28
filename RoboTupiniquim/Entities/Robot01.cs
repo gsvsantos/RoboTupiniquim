@@ -7,6 +7,8 @@ internal class Robot01
     public static int PositionX { get; set; }
     public static int PositionY { get; set; }
     public static char Direction { get; set; }
+    static char[] directionList = { 'N', 'O', 'S', 'L', };
+    static char[] commandList = { 'D', 'E', 'M' };
     public static int Id = 1;
 
     public static void GetData()
@@ -44,32 +46,35 @@ internal class Robot01
     }
     private static void RunCommands(char[] commands)
     {
-            ViewWrite.InitialPosition(PositionX, PositionY, Direction);
-            bool watchRobotSteps = ViewUtils.YesOrNo();
-            Console.WriteLine();
+        ViewWrite.InitialPosition(PositionX, PositionY, Direction);
+        bool watchRobotSteps = ViewUtils.YesOrNo();
+        Console.WriteLine();
 
-            foreach (char command in commands)
-            {
-                if (command == 'D')
-                    TurnRight(watchRobotSteps);
-                else if (command == 'E')
-                    TurnLeft(watchRobotSteps);
-                else if (command == 'M')
-                    MoveOn(watchRobotSteps);
-            }
+        foreach (char command in commands)
+        {
+            if (command == commandList[0])
+                TurnRight(watchRobotSteps);
+            else if (command == commandList[1])
+                TurnLeft(watchRobotSteps);
+            else if (command == commandList[2])
+                MoveOn(watchRobotSteps);
+        }
     }
     public static void TurnLeft(bool watchRobotSteps)
     {
         char oldDirection = Direction;
 
-        if (Direction == 'N')
-            Direction = 'O';
-        else if (Direction == 'O')
-            Direction = 'S';
-        else if (Direction == 'S')
-            Direction = 'L';
-        else if (Direction == 'L')
-            Direction = 'N';
+        if (Direction == directionList[0])
+            Direction = directionList[1];
+
+        else if (Direction == directionList[1])
+            Direction = directionList[2];
+
+        else if (Direction == directionList[2])
+            Direction = directionList[3];
+
+        else if (Direction == directionList[3])
+            Direction = directionList[0];
 
         if (watchRobotSteps == true)
             ViewWrite.LookToDirection(oldDirection, Direction);
@@ -78,27 +83,30 @@ internal class Robot01
     {
         char oldDirection = Direction;
 
-        if (Direction == 'N')
-            Direction = 'L';
-        else if (Direction == 'L')
-            Direction = 'S';
-        else if (Direction == 'S')
-            Direction = 'O';
-        else if (Direction == 'O')
-            Direction = 'N';
+        if (Direction == directionList[0])
+            Direction = directionList[3];
+
+        else if (Direction == directionList[3])
+            Direction = directionList[2];
+
+        else if (Direction == directionList[2])
+            Direction = directionList[1];
+
+        else if (Direction == directionList[1])
+            Direction = directionList[0];
 
         if (watchRobotSteps == true)
             ViewWrite.LookToDirection(oldDirection, Direction);
     }
     public static void MoveOn(bool watchRobotSteps)
     {
-        if (Direction == 'N')
+        if (Direction == directionList[0])
             PositionY += 1;
-        else if (Direction == 'S')
+        else if (Direction == directionList[2])
             PositionY -= 1;
-        else if (Direction == 'L')
+        else if (Direction == directionList[3])
             PositionX += 1;
-        else if (Direction == 'O')
+        else if (Direction == directionList[1])
             PositionX -= 1;
 
         if (watchRobotSteps == true)
