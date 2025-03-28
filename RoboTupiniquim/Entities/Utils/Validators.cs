@@ -14,7 +14,7 @@ public class Validators
                 continue;
             }
             input = input.Trim();
-            if (input.Contains(' ') || input.Contains('.') || input.Contains(','))
+            if (input.Contains('.') || input.Contains(','))
             {
                 ViewWriteErrors.IntCannotHaveSpaceDotComma();
                 continue;
@@ -51,7 +51,52 @@ public class Validators
             return input;
         } while (true);
     }
-    public static string[] DataVerify()
+    public static string LetterVerify(string prompt, string lenghtError, int minLenght = 1, int maxLenght = int.MaxValue)
+    {
+        do
+        {
+            ViewColors.PaintWrite(prompt);
+            string input = Console.ReadLine()!;
+            if (string.IsNullOrEmpty(input))
+            {
+                ViewWriteErrors.InputIsNullOrEmpty(input);
+                continue;
+            }
+            if (!input.All(char.IsLetter))
+            {
+                ViewWriteErrors.CommandsNeedsToBeLetters();
+                continue;
+            }
+            if (input.Length < minLenght || input.Length > maxLenght)
+            {
+                ViewWriteErrors.StringNeedBetweenMinAndMax(lenghtError);
+                continue;
+            }
+            return input;
+        } while (true);
+    }
+    public static char[] RobotCommandsVerify() //verificar se é D E M
+    {
+        do
+        {
+            char[] commands = ViewUtils.GetCommandList();
+            bool wrongCommand = false;
+            for (int i = 0; i < commands.Length; i++)
+            {
+                if (commands[i] != 'D' || commands[i] != 'E' || commands[i] != 'M')
+                {
+                    ViewWriteErrors.CommandsNeedsToBeLetters();
+                    wrongCommand = true;
+                    break;
+                }
+            }
+            if (wrongCommand == true)
+                continue;
+            else
+                return commands;
+        }while (true);
+    }
+    public static string[] RobotDataVerify() //verificar se inicia com xInt, yInt, directionChar
     {
         do
         {
@@ -74,6 +119,6 @@ public class Validators
                 continue;
             }
             return data;
-        }while (true);
+        } while (true);
     }
 }
