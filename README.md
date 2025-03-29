@@ -1,8 +1,8 @@
 # Robo Tupiniquim
 
 Um projeto desenvolvido em C# para a AEB (Agência Espacial Brasileira).  
-Contém sistemas capazes de fazer lançamentos de dois robôs para realizar uma pesquisa em uma área de Marte.  
-O programa é capaz de guiar os robôs, com determinados movimentos e direções para quais eles devem se mover.
+Contém um sistema poderoso capaz de fazer lançamentos de dois robôs para realizar uma pesquisa em uma determinada área de Marte.  
+O programa é capaz de guiar os robôs, com comandos de movimentos e direções para quais eles devem se mover.
 
 ![](https://i.imgur.com/VDqeqBr.gif)
 
@@ -14,11 +14,11 @@ Planejamento do projeto feito via Whimsical:
 
 O projeto está organizado na seguinte forma:
 
-- **[Program.cs](https://github.com/gsvsantos/RoboTupiniquim/blob/structured/RoboTupiniquim/Program.cs)**: Arquivo principal, contendo a inicialização e execução do programa.
+- **[Program.cs](https://github.com/gsvsantos/RoboTupiniquim/blob/structured/RoboTupiniquim/Program.cs)**: Arquivo principal, nele contém o necessário para inicializar e executar o programa.
 - **[Entities/](https://github.com/gsvsantos/RoboTupiniquim/tree/structured/RoboTupiniquim/Entities)**
-  - **[Area.cs](https://github.com/gsvsantos/RoboTupiniquim/blob/structured/RoboTupiniquim/Entities/Area.cs)**: Contém a lógica da área onde os robôs se movimentam.
-  - **[Robot01.cs](https://github.com/gsvsantos/RoboTupiniquim/blob/structured/RoboTupiniquim/Entities/Robot01.cs)**: Define o comportamento do primeiro robô.
-  - **[Robot02.cs](https://github.com/gsvsantos/RoboTupiniquim/blob/structured/RoboTupiniquim/Entities/Robot02.cs)**: Define o comportamento do segundo robô.
+  - **[Area.cs](https://github.com/gsvsantos/RoboTupiniquim/blob/structured/RoboTupiniquim/Entities/Area.cs)**: Contém a lógica da área de pesquisa por onde os robôs se movimentam.
+  - **[Robot01.cs](https://github.com/gsvsantos/RoboTupiniquim/blob/structured/RoboTupiniquim/Entities/Robot01.cs)**: Lida com a lógica e comportamento do primeiro robô.
+  - **[Robot02.cs](https://github.com/gsvsantos/RoboTupiniquim/blob/structured/RoboTupiniquim/Entities/Robot02.cs)**: Lida com a lógica e comportamento do segundo robô.
 - **[Entities/Utils/](https://github.com/gsvsantos/RoboTupiniquim/tree/structured/RoboTupiniquim/Entities/Utils)**
   - **[Validators.cs](https://github.com/gsvsantos/RoboTupiniquim/blob/structured/RoboTupiniquim/Entities/Utils/Validators.cs)**: Contém funções para validar entradas e dados.
   - **[ViewColors.cs](https://github.com/gsvsantos/RoboTupiniquim/blob/structured/RoboTupiniquim/Entities/Utils/ViewColors.cs)**: Define as cores usadas no programa para exibição de mensagens.
