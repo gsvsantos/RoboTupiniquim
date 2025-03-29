@@ -9,7 +9,7 @@ internal class ViewUtils
     }
     public static string[] GetRobotInitialData(int id)
     {
-        string input = Validators.StringVerify($"\nInforme a posição inicial do Robô #{id}: ", "Houve um erro com esta posição informada!", 1, 5);
+        string input = Validators.StringVerify($"\nInforme a posição inicial do Robô #{id}: ", "Houve um erro com esta posição informada!", 1);
         return input.ToUpper().Split(' ');
     }
     public static char[] GetCommandList()
