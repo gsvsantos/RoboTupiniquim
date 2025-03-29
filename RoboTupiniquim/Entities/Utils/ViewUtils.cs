@@ -4,7 +4,7 @@ internal class ViewUtils
 {
     public static string[] GetAreaMaxLimit()
     {
-        string input = Validators.StringVerify("Por favor, digite o tamanho da área de pesquisa (Ex: 5 5): ", "Algo deu errado com o tamanho inserido da area de pesquisa!", 1, 3);
+        string input = Validators.StringVerify("Por favor, digite o tamanho da área de pesquisa (Ex: 5 5): ", "Algo deu errado com o tamanho inserido da area de pesquisa!", 1);
         return input.Split(' ');
     }
     public static string[] GetRobotInitialData(int id)
