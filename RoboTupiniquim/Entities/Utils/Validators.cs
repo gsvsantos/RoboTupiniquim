@@ -103,12 +103,12 @@ public class Validators
             string[] data = ViewUtils.GetRobotInitialData(id);
             bool isNotNumber = false;
 
-            if(data.Length != 3)
+            if (data.Length != 3)
             {
                 ViewWriteErrors.DataInputError();
                 continue;
             }
-            if(data.Contains(" "))
+            if (data.Contains(" "))
             {
                 ViewWriteErrors.PositionNeedsToBeAIntNumber();
                 continue;
