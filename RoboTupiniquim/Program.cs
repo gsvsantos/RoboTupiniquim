@@ -1,39 +1,41 @@
 ﻿using RoboTupiniquim.Entities;
 using RoboTupiniquim.Entities.Utils;
 
-namespace RoboTupiniquim
+namespace RoboTupiniquim;
+
+internal class Program
 {
-    internal class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
+        Robot firstRobot = new Robot();
+        Robot secondRobot = new Robot();
+
+        do
         {
-            do
-            {
-                ViewWrite.Header();
-                Area.AreaCreate();
+            ViewWrite.Header();
+            Area.AreaCreate();
 
-                ViewUtils.PressEnter("PRIMEIRO-ROBO");
-                ViewWrite.Header();
-                ViewWrite.PrintArea();
+            ViewUtils.PressEnter("PRIMEIRO-ROBO");
+            ViewWrite.Header();
+            ViewWrite.PrintArea();
 
-                Robot01.GetData();
-                Robot01.GetCommands();
+            firstRobot.GetData();
+            firstRobot.GetCommands();
 
-                ViewUtils.PressEnter("SEGUNDO-ROBO");
-                ViewWrite.Header();
-                ViewWrite.PrintArea();
+            ViewUtils.PressEnter("SEGUNDO-ROBO");
+            ViewWrite.Header();
+            ViewWrite.PrintArea();
 
-                Robot02.GetData();
-                Robot02.GetCommands();
+            secondRobot.GetData();
+            secondRobot.GetCommands();
 
-                ViewUtils.PressEnter("POSICAO-FINAL");
-                ViewWrite.Header();
+            ViewUtils.PressEnter("POSICAO-FINAL");
+            ViewWrite.Header();
 
-                ViewWrite.LastPosition(Robot01.Id, Robot01.PositionX, Robot01.PositionY, Robot01.Direction);
-                ViewWrite.LastPosition(Robot02.Id, Robot02.PositionX, Robot02.PositionY, Robot02.Direction);
+            ViewWrite.LastPosition(firstRobot.Id, firstRobot.PositionX, firstRobot.PositionY, firstRobot.Direction);
+            ViewWrite.LastPosition(secondRobot.Id, secondRobot.PositionX, secondRobot.PositionY, secondRobot.Direction);
 
-                ViewUtils.PressEnter("LANCAR-NOVAMENTE");
-            } while (true);
-        }
+            ViewUtils.PressEnter("LANCAR-NOVAMENTE");
+        } while (true);
     }
 }
