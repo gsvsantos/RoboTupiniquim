@@ -2,9 +2,11 @@
 
 namespace RoboTupiniquim.Entities;
 
-internal class Area
+public class Area
 {
-    public static int MaxX, MaxY;
+    public static int MaxX { get; set; }
+    public static int MaxY { get; set; }
+
     public static void AreaCreate()
     {
         string[] values = Validators.AreaLimitVerify();
@@ -15,5 +17,4 @@ internal class Area
     {
         return positionX >= 0 && positionX <= MaxX && positionY >= 0 && positionY <= MaxY;
     }
-
 }
