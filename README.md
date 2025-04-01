@@ -14,17 +14,17 @@ Planejamento do projeto feito via Whimsical:
 
 O projeto está organizado na seguinte forma:
 
-- **[Program.cs](https://github.com/gsvsantos/RoboTupiniquim/blob/structured/RoboTupiniquim/Program.cs)**: Arquivo principal, nele contém o necessário para inicializar e executar o programa.
-- **[Entities/](https://github.com/gsvsantos/RoboTupiniquim/tree/structured/RoboTupiniquim/Entities)**
-  - **[Area.cs](https://github.com/gsvsantos/RoboTupiniquim/blob/structured/RoboTupiniquim/Entities/Area.cs)**: Contém a lógica da área de pesquisa por onde os robôs se movimentam.
-  - **[Robot01.cs](https://github.com/gsvsantos/RoboTupiniquim/blob/structured/RoboTupiniquim/Entities/Robot01.cs)**: Lida com a lógica e comportamento do primeiro robô.
-  - **[Robot02.cs](https://github.com/gsvsantos/RoboTupiniquim/blob/structured/RoboTupiniquim/Entities/Robot02.cs)**: Lida com a lógica e comportamento do segundo robô.
-- **[Entities/Utils/](https://github.com/gsvsantos/RoboTupiniquim/tree/structured/RoboTupiniquim/Entities/Utils)**
-  - **[Validators.cs](https://github.com/gsvsantos/RoboTupiniquim/blob/structured/RoboTupiniquim/Entities/Utils/Validators.cs)**: Contém funções para validar entradas e dados.
-  - **[ViewColors.cs](https://github.com/gsvsantos/RoboTupiniquim/blob/structured/RoboTupiniquim/Entities/Utils/ViewColors.cs)**: Define as cores usadas no programa para exibição de mensagens.
-  - **[ViewUtils.cs](https://github.com/gsvsantos/RoboTupiniquim/blob/structured/RoboTupiniquim/Entities/Utils/ViewUtils.cs)**: Contém funções interativas com o usuário.
-  - **[ViewWrite.cs](https://github.com/gsvsantos/RoboTupiniquim/blob/structured/RoboTupiniquim/Entities/Utils/ViewWrite.cs)**: Responsável pela escrita de mensagens no console.
-  - **[ViewWriteErrors.cs](https://github.com/gsvsantos/RoboTupiniquim/blob/structured/RoboTupiniquim/Entities/Utils/ViewWriteErrors.cs)**: Responsável pela escrita de mensagens de erro no console.
+- **[Program.cs](https://github.com/gsvsantos/RoboTupiniquim/blob/master/RoboTupiniquim/Program.cs)**: Arquivo principal, nele contém o necessário para inicializar e executar o programa.
+- **[Entities/](https://github.com/gsvsantos/RoboTupiniquim/tree/master/RoboTupiniquim/Entities)**
+  - **[Area.cs](https://github.com/gsvsantos/RoboTupiniquim/blob/master/RoboTupiniquim/Entities/Area.cs)**: Contém a lógica da área de pesquisa por onde os Robôs se movimentam.
+  - **[Entity.cs](https://github.com/gsvsantos/RoboTupiniquim/blob/master/RoboTupiniquim/Entities/Entity.cs)**: Contém as propriedades básicas dos Robôs.
+  - **[Robot.cs](https://github.com/gsvsantos/RoboTupiniquim/blob/master/RoboTupiniquim/Entities/Robot.cs)**: Lida com a lógica e comportamento dos Robôs.
+- **[Entities/Utils/](https://github.com/gsvsantos/RoboTupiniquim/tree/master/RoboTupiniquim/Entities/Utils)**
+  - **[Validators.cs](https://github.com/gsvsantos/RoboTupiniquim/blob/master/RoboTupiniquim/Entities/Utils/Validators.cs)**: Contém funções para validar entradas e dados.
+  - **[ViewColors.cs](https://github.com/gsvsantos/RoboTupiniquim/blob/master/RoboTupiniquim/Entities/Utils/ViewColors.cs)**: Define as cores usadas no programa para exibição de mensagens.
+  - **[ViewUtils.cs](https://github.com/gsvsantos/RoboTupiniquim/blob/master/RoboTupiniquim/Entities/Utils/ViewUtils.cs)**: Contém funções interativas com o usuário.
+  - **[ViewWrite.cs](https://github.com/gsvsantos/RoboTupiniquim/blob/master/RoboTupiniquim/Entities/Utils/ViewWrite.cs)**: Responsável pela escrita de mensagens no console.
+  - **[ViewWriteErrors.cs](https://github.com/gsvsantos/RoboTupiniquim/blob/master/RoboTupiniquim/Entities/Utils/ViewWriteErrors.cs)**: Responsável pela escrita de mensagens de erro no console.
 
 ## Requisitos
 
